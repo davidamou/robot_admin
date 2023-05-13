@@ -37,6 +37,10 @@ const TextField = styled.div`
     background-color: transparent;
     outline: none;
   }
+
+  @media (max-width: 768px) {
+    width: 60%;
+  }
 `
 
 const profileImage =
