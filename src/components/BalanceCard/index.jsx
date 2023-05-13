@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button, Padding, Spacer } from '../globals'
+import { Button, Padding, Spacer } from '../../styles/globals'
 
 const Container = styled.div`
   background-color: white;
@@ -32,13 +32,13 @@ export function BalanceCard() {
       <Row>
         <div>Your Balance</div>
       </Row>
-      <Spacer/>
+      <Spacer />
       <Value>4.583.76 ETH</Value>
-      <Spacer/>
+      <Spacer />
       <Row>
         <div>36,784978 ETH</div>
       </Row>
-      <Spacer height='2em'/>
+      <Spacer height="2em" />
       <OutlineButton type="outline">Top Up Balance</OutlineButton>
     </Container>
   )

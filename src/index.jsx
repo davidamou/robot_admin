@@ -1,12 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './styles/global.css'
 import reportWebVitals from './reportWebVitals'
 import Home from './pages/Home'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: Inter, sans-serif;
+    background: whitesmoke;
+  }
+`
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <Home />
   </React.StrictMode>
 )

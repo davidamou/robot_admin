@@ -1,19 +1,16 @@
 import styled from 'styled-components'
 import searchIcon from '../../assets/icons/chercher.svg'
 import cloche from '../../assets/icons/cloche.svg'
-import { Avatar, IconButton, Spacer } from '../globals'
+import { Avatar, IconButton, Spacer } from '../../styles/globals'
 
 const Container = styled.div`
   border-bottom: 1px solid #dbdbdb;
   width: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   padding: 1em 0;
   align-items: center;
-  div {
-    display: flex;
-    align-items: center;
-  }
 `
 
 const TextField = styled.div`
@@ -39,8 +36,14 @@ const TextField = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 60%;
+    width: 50%;
   }
+`
+
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: end;
 `
 
 const profileImage =
@@ -53,15 +56,15 @@ function TopBar() {
         <img src={searchIcon} alt="search icon" />
         <input type="text" placeholder="Search" />
       </TextField>
-      <div>
+      <Content>
         <IconButton>
           <img src={cloche} alt="cloch icon" />
         </IconButton>
-        <Spacer width="1.5em" />
+        <Spacer width="1em" />
         <Avatar size="2.5em">
           <img src={profileImage} alt="profile" />
         </Avatar>
-      </div>
+      </Content>
     </Container>
   )
 }

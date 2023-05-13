@@ -3,7 +3,7 @@ import NavBar from '../../components/NavBar'
 import TopBar from '../../components/TopBar'
 import { Card } from '../../components/Card'
 import { BalanceCard } from '../../components/BalanceCard'
-import { Padding, Spacer, Button } from '../../components/globals'
+import { Padding, Spacer, Button } from '../../styles/globals'
 import Recommanded from '../../components/Recommanded'
 
 const data = [
@@ -58,11 +58,11 @@ const Column = styled.div`
 
 const LargeCard = styled.div`
   width: 100%;
+  padding: 1.4em 0;
   border-radius: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 12.2em;
   color: white;
   background-image: url('image-large.jpg');
   background-size: cover;
@@ -120,11 +120,11 @@ function Home() {
           <Content>
             <Column flex={3}>
               <LargeCard>
-                <Padding margin="2em">
+                <Padding margin="0 2em">
                   <h5>ALVO</h5>
                   <Spacer height=".5em" />
                   <h1>Create your own NFT</h1>
-                  <Spacer height=".8em" />
+                  <Spacer height=".5em" />
                   <p>One of the most convenient platforms for buying NFTs</p>
                   <Spacer height="1.5em" />
                   <Row>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Padding = styled.div`
   margin: ${(props) => (props.margin ? props.margin : '1em')};
   @media (max-width: 768px) {
-    margin: 0 1em;
+    margin: 1em;
   }
 `
 
