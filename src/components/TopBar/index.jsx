@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import searchIcon from '../assets/icons/chercher.svg'
-import cloche from '../assets/icons/cloche.svg'
-import { Avatar, IconButton, Spacer } from './globals'
+import searchIcon from '../../assets/icons/chercher.svg'
+import cloche from '../../assets/icons/cloche.svg'
+import { Avatar, IconButton, Spacer } from '../globals'
 
 const Container = styled.div`
   border-bottom: 1px solid #dbdbdb;

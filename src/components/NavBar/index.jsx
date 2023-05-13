@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import homeIcon from '../assets/icons/maison.svg'
-import statistiqueIcon from '../assets/icons/statistiques.svg'
-import historyIcon from '../assets/icons/historique.svg'
-import flashIcon from '../assets/icons/verrouiller.svg'
-import logOutIcon from '../assets/icons/sortir.svg'
-import { Avatar, Spacer } from './globals'
+import homeIcon from '../../assets/icons/maison.svg'
+import statistiqueIcon from '../../assets/icons/statistiques.svg'
+import historyIcon from '../../assets/icons/historique.svg'
+import flashIcon from '../../assets/icons/verrouiller.svg'
+import logOutIcon from '../../assets/icons/sortir.svg'
+import { Avatar, Spacer } from '../globals'
 
 const NavBarContainer = styled.div`
   border-right: 1px solid #dbdbdb;
@@ -42,7 +42,7 @@ const NavBarContainer = styled.div`
 const IconButtons = styled.div`
   width: 1.2em;
   height: 1.2em;
-  padding: 1em;
+  padding: 0.8em;
   border-right: ${(props) =>
     props.isSelected ? '2px solid rgb(219, 160, 91)' : 'none'};
 
@@ -70,12 +70,12 @@ const Logo = styled.div`
   font-weight: bold;
   text-align: center;
   color: rgb(219, 160, 91);
-  margin-bottom: 1.2em;
+  margin: 1.2em 0; 
   border-radius: 100%;
   border: 6px solid rgb(219, 160, 91);
 
   @media (max-width: 768px) {
-   margin-bottom: 0;
+    margin: 0;
   }
 `
 
@@ -89,7 +89,6 @@ function NavBar() {
   return (
     <NavBarContainer>
       <div>
-        <Spacer />
         <Logo>R</Logo>
         <IconButtons isSelected={true}>
           <img src={homeIcon} alt="Home icon" />

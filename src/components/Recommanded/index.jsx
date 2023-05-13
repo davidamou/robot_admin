@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Avatar, Button, Spacer } from './globals'
+import { Avatar, Button, Spacer } from '../globals'
 
 const Container = styled.div`
   background-color: white;

@@ -161,7 +161,7 @@ function Home() {
               <Spacer height="1em" />
               <Recommanded />
             </Column>
-            <BottomSpace/>
+            <BottomSpace />
           </Content>
         </Padding>
       </Container>

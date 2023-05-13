@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   grid-column: 1fr;
-  cursor: pointer;
   overflow: hidden;
   background-color: white;
   border-radius: 1em;
@@ -17,6 +16,7 @@ const Container = styled.div`
   }
 
   &:hover {
+    cursor: pointer;
     img {
       transform: scale(1.1);
     }
