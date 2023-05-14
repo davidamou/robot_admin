@@ -26,6 +26,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@flaticon/flaticon-uicons", "npm:2.2.0"],\
           ["@testing-library/jest-dom", "npm:5.16.5"],\
           ["@testing-library/react", "virtual:5690469bb5269cf683b7f489c4d86eea101053f12955f776e220b173cb800fca0e1a9a592a65f3db2e3da8d5a350d4233c7137abfaa281930f852dd98d7b529d#npm:13.4.0"],\
           ["@testing-library/user-event", "virtual:5690469bb5269cf683b7f489c4d86eea101053f12955f776e220b173cb800fca0e1a9a592a65f3db2e3da8d5a350d4233c7137abfaa281930f852dd98d7b529d#npm:13.5.0"],\
@@ -3356,6 +3357,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@eslint-js-npm-8.40.0-f1b4eeb9c4-9.zip/node_modules/@eslint/js/",\
         "packageDependencies": [\
           ["@eslint/js", "npm:8.40.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@flaticon/flaticon-uicons", [\
+      ["npm:2.2.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@flaticon-flaticon-uicons-npm-2.2.0-4f48d4d576-9.zip/node_modules/@flaticon/flaticon-uicons/",\
+        "packageDependencies": [\
+          ["@flaticon/flaticon-uicons", "npm:2.2.0"],\
+          ["esbuild-linux-64", "npm:0.14.54"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8216,6 +8227,15 @@ const RAW_RUNTIME_STATE =
           ["is-callable", "npm:1.2.7"],\
           ["is-date-object", "npm:1.0.5"],\
           ["is-symbol", "npm:1.0.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["esbuild-linux-64", [\
+      ["npm:0.14.54", {\
+        "packageLocation": "./.yarn/unplugged/esbuild-linux-64-npm-0.14.54-2cb8070ade/node_modules/esbuild-linux-64/",\
+        "packageDependencies": [\
+          ["esbuild-linux-64", "npm:0.14.54"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -15546,6 +15566,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["robot_admin", "workspace:."],\
+          ["@flaticon/flaticon-uicons", "npm:2.2.0"],\
           ["@testing-library/jest-dom", "npm:5.16.5"],\
           ["@testing-library/react", "virtual:5690469bb5269cf683b7f489c4d86eea101053f12955f776e220b173cb800fca0e1a9a592a65f3db2e3da8d5a350d4233c7137abfaa281930f852dd98d7b529d#npm:13.4.0"],\
           ["@testing-library/user-event", "virtual:5690469bb5269cf683b7f489c4d86eea101053f12955f776e220b173cb800fca0e1a9a592a65f3db2e3da8d5a350d4233c7137abfaa281930f852dd98d7b529d#npm:13.5.0"],\

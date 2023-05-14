@@ -1,14 +1,12 @@
 import styled from 'styled-components'
-import homeIcon from '../../assets/icons/maison.svg'
-import statistiqueIcon from '../../assets/icons/statistiques.svg'
-import historyIcon from '../../assets/icons/historique.svg'
-import flashIcon from '../../assets/icons/verrouiller.svg'
-import logOutIcon from '../../assets/icons/sortir.svg'
-import { Avatar, Spacer } from '../../styles/globals'
-import { useState } from 'react'
+import { Spacer } from '../../styles/globals'
+import Avatar from '../Avatar'
+import logo from '../../assets/icons/logo.svg'
+import { useContext, useState } from 'react'
+import { ThemeContext } from '../ThemeProvider'
 
 const NavBarContainer = styled.div`
-  border-right: 1px solid #dbdbdb;
+  border-right: 0.05em solid ${(props) => props.theme.divider};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -18,29 +16,26 @@ const NavBarContainer = styled.div`
   @media (max-width: 768px) {
     position: fixed;
     z-index: 100;
-    background-color: white;
+    background-color: ${(props) => props.theme.background};
     width: 100%;
     height: 3.5em;
     bottom: 0;
   }
 `
 
-const IconButtons = styled.div`
+const NavLink = styled.div`
   width: 1.2em;
   height: 1.2em;
   padding: 0.8em;
-  border-right: ${(props) =>
-    props.isSelected ? '2px solid rgb(219, 160, 91)' : 'none'};
+  ${(props) =>
+    props.isselected ? 'border-right: 2px solid rgb(219, 160, 91)' : null};
 
   &:hover {
     background-color: rgba(219, 159, 91, 0.141);
   }
 
-  img {
-    filter: ${(props) => (props.isSelected ? 'rgb(219, 160, 91)' : 'grey')};
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  i {
+    color: ${(props) => props.isselected? 'rgb(219, 160, 91)' : null};
   }
 
   @media (max-width: 768px) {
@@ -71,18 +66,25 @@ const NavBottom = styled.div`
 `
 
 const Logo = styled.div`
-  width: 1.2em;
-  height: 1.2em;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  color: rgb(219, 160, 91);
   margin: 1.2em 0;
+  width: 1em;
+  height: 1em;
   border-radius: 100%;
-  border: 6px solid rgb(219, 160, 91);
+  border: 4px solid rgb(219, 160, 91);
+  border-top: none;
+  display: flex;
+  padding: 0.2em;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
 
   @media (max-width: 768px) {
-    margin: 0;
     display: none;
   }
 `
@@ -93,45 +95,54 @@ const av2 =
   'https://img.freepik.com/photos-gratuite/femme-se-tient-devant-fond-colore-robe-bleue-ceinture-noire_1340-37544.jpg?size=626&ext=jpg&uid=R32696892&ga=GA1.2.986361167.1680360118&semt=sph'
 const av3 = 'https://picsum.photos/200'
 
-function NavBar() {
+const NavBar = () => {
   const [currentTab, setCurrentTab] = useState(0)
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
   return (
-    <NavBarContainer>
+    <NavBarContainer theme={theme}>
       <NavTop>
-        <Logo>R</Logo>
-        <IconButtons isSelected={currentTab == 0 ? true : false} onClick={() => setCurrentTab(0)}>
-          <img src={homeIcon} alt="Home icon" />
-        </IconButtons>
+        <Logo onClick={() => toggleTheme()}>
+          <img src={logo} alt="logo" />
+        </Logo>
+        <NavLink
+          isselected={currentTab == 0 ? true : false}
+          onClick={() => setCurrentTab(0)}
+        >
+          <i className="fi fi-rr-home"></i>
+        </NavLink>
         <Spacer height="0.5em" />
-        <IconButtons isSelected={currentTab == 1 ? true : false} onClick={() => setCurrentTab(1)}>
-          <img src={statistiqueIcon} alt="Statistique icon" />
-        </IconButtons>
+        <NavLink
+          isselected={currentTab == 1 ? true : false}
+          onClick={() => setCurrentTab(1)}
+        >
+          <i className="fi fi-rr-stats"></i>
+        </NavLink>
         <Spacer height="0.5em" />
-        <IconButtons isSelected={currentTab == 2 ? true : false} onClick={() => setCurrentTab(2)}>
-          <img src={historyIcon} alt="Historique icon" />
-        </IconButtons>
+        <NavLink
+          isselected={currentTab == 2 ? true : false}
+          onClick={() => setCurrentTab(2)}
+        >
+          <i className="fi fi-rr-ballot-check"></i>
+        </NavLink>
         <Spacer height="0.5em" />
-        <IconButtons isSelected={currentTab == 3 ? true : false} onClick={() => setCurrentTab(3)}>
-          <img src={flashIcon} alt="Flash icon" />
-        </IconButtons>
+        <NavLink
+          isselected={currentTab == 3 ? true : false}
+          onClick={() => setCurrentTab(3)}
+        >
+          <i className="fi fi-rr-rocket-lunch"></i>
+        </NavLink>
       </NavTop>
       <NavBottom>
-        <Avatar>
-          <img src={av1} alt="av1" />
-        </Avatar>
+        <Avatar url={av1} />
         <Spacer />
-        <Avatar>
-          <img src={av2} alt="av2" />
-        </Avatar>
+        <Avatar url={av2} />
         <Spacer />
-        <Avatar>
-          <img src={av3} alt="av3" />
-        </Avatar>
+        <Avatar url={av3} />
         <Spacer />
-        <IconButtons>
-          <img src={logOutIcon} alt="sign out" />
-        </IconButtons>
+        <NavLink>
+          <i className="fi fi-rr-exit"></i>
+        </NavLink>
         <Spacer />
       </NavBottom>
     </NavBarContainer>

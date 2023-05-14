@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled, createGlobalStyle } from 'styled-components'
 
 export const Padding = styled.div`
   margin: ${(props) => (props.margin ? props.margin : '1em')};
@@ -39,27 +39,34 @@ export const Button = styled.button`
 `
 
 // Icon Button styles
-export const IconButton = styled.button`
-  width: 2.6em;
-  height: 2.6em;
-  border: none; 
-  padding: 0.5em;
+export const IconButton = styled.div`
+  width: 2em;
+  height: 2em;
+  border: none;
+  background-color: transparent;
   border-radius: 100%;
-  img {
+  i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
   }
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(217, 145, 62, 0.2);
+  }
 `
 
-// avatar styles
-export const Avatar = styled.div`
-  width: ${(props) => (props.size ? props.size : '2em')};
-  height: ${(props) => (props.size ? props.size : '2em')};
-  overflow: hidden;
-  border-radius: 100%;
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+// Globale style
+export const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: Inter, sans-serif;
+    background: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.forground};
   }
 `

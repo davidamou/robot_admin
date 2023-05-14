@@ -1,15 +1,17 @@
 import styled from 'styled-components'
 import { Button, Padding, Spacer } from '../../styles/globals'
+import { useContext } from 'react'
+import { ThemeContext } from '../ThemeProvider'
 
 const Container = styled.div`
-  background-color: white;
+  background-color: ${(props) => props.theme.cavans};
   padding: 1em;
   border-radius: 1em;
 `
 
 const Row = styled.div`
   display: flex;
-  color: grey;
+  color: ${(props) => props.theme.secondary};
   font-size: small;
   justify-content: space-between;
 `
@@ -19,17 +21,19 @@ const Value = styled.div`
   font-weight: bold;
 `
 const OutlineButton = styled(Button)`
-  border: 1px solid #dbdbdb;
-  color: #1e1e1e;
+  border: 0.01em solid ${(props) => props.theme.secondary};
+  color: ${(props) => props.theme.forground};
   &:hover {
     background-color: rgba(219, 159, 91, 0.141);
   }
 `
 
-export function BalanceCard() {
+const BalanceCard = () => {
+  const { theme } = useContext(ThemeContext)
+
   return (
-    <Container>
-      <Row>
+    <Container theme={theme}>
+      <Row theme={theme}>
         <div>Your Balance</div>
       </Row>
       <Spacer />
@@ -39,7 +43,9 @@ export function BalanceCard() {
         <div>36,784978 ETH</div>
       </Row>
       <Spacer height="2em" />
-      <OutlineButton type="outline">Top Up Balance</OutlineButton>
+      <OutlineButton theme={theme} type="outline">Top Up Balance</OutlineButton>
     </Container>
   )
 }
+
+export default BalanceCard

@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import NavBar from '../../components/NavBar'
 import TopBar from '../../components/TopBar'
 import { Card } from '../../components/Card'
-import { BalanceCard } from '../../components/BalanceCard'
 import { Padding, Spacer, Button } from '../../styles/globals'
 import Recommanded from '../../components/Recommanded'
+import { useContext } from 'react'
+import BalanceCard from '../../components/BalanceCard'
 
 const data = [
   {
@@ -108,7 +109,7 @@ const BottomSpace = styled.div`
 `
 
 function Home() {
-  document.title = 'Home - Alvo'
+  const isDark = useContext(ThemeContext)
 
   return (
     <HomeContainer>
