@@ -1,15 +1,18 @@
 import styled from 'styled-components'
-import { Avatar, Button, Spacer } from '../../styles/globals'
+import { Button, Spacer } from '../../styles/globals'
+import Avatar from '../Avatar'
+import { useContext } from 'react'
+import { ThemeContext } from '../ThemeProvider'
 
 const Container = styled.div`
-  background-color: white;
+  background-color: ${(props) => props.theme.cavans};
   border-radius: 1em;
   padding: 0.8em;
   overflow: hidden;
 
   p {
     font-size: small;
-    color: grey;
+    color: ${(props) => props.theme.secondary};
   }
 `
 
@@ -42,7 +45,7 @@ const Center = styled.div`
   height: 3em;
   padding: 0.3em;
   border-radius: 100%;
-  background-color: white;
+  background-color: ${(props) => props.theme.cavans};
 `
 
 const OutlineButton = styled(Button)`
@@ -63,9 +66,10 @@ const image2 =
 const image3 =
   'https://img.freepik.com/photos-premium/portrait-robot-feminin-futuriste-fantasme-abstrait-artistique-cyberpunk_158863-3620.jpg?size=626&ext=jpg&uid=R32696892&ga=GA1.2.986361167.1680360118&semt=sph'
 
-function Recommanded() {
+const Recommanded = () => {
+  const { theme } = useContext(ThemeContext)
   return (
-    <Container>
+    <Container theme={theme}>
       <Row>
         <ImageContainer>
           <img src={image1} alt="recommanded1" />
@@ -78,10 +82,8 @@ function Recommanded() {
         <ImageContainer>
           <img src={image3} alt="recommanded3" />
         </ImageContainer>
-        <Center>
-          <Avatar size="3em">
-            <img src={avatar} alt="profile" />
-          </Avatar>
+        <Center theme={theme}>
+          <Avatar url={avatar} radius="3em"/>
         </Center>
       </Row>
       <Spacer height="2.5em" />

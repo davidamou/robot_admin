@@ -1,43 +1,19 @@
 import styled from 'styled-components'
-import searchIcon from '../../assets/icons/chercher.svg'
 import cloche from '../../assets/icons/cloche.svg'
-import { Avatar, IconButton, Spacer } from '../../styles/globals'
+import { IconButton, Spacer } from '../../styles/globals'
+import Avatar from '../Avatar'
+import { useContext } from 'react'
+import { ThemeContext } from '../ThemeProvider'
+import TextField from '../TextField'
 
 const Container = styled.div`
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 0.05em solid ${(props) => props.theme.divider};
   width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  padding: 1em 0;
+  padding: 0.8em 0;
   align-items: center;
-`
-
-const TextField = styled.div`
-  height: 2em;
-  border-radius: 8px;
-  padding: 0.2em 1em;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  img {
-    width: 1em;
-    margin-right: 0.5em;
-    height: 1em;
-    opacity: 0.5;
-  }
-  input {
-    height: 100%;
-    padding-left: 0.5em;
-    border: none;
-    font-size: 1rem;
-    background-color: transparent;
-    outline: none;
-  }
-
-  @media (max-width: 768px) {
-    width: 50%;
-  }
 `
 
 const Content = styled.div`
@@ -49,21 +25,18 @@ const Content = styled.div`
 const profileImage =
   'https://img.freepik.com/photos-gratuite/portrait-futuriste-jeune-femme-adulte-brille-sensualite-generee-par-ia_188544-20368.jpg?size=626&ext=jpg&uid=R32696892&ga=GA1.2.986361167.1680360118&semt=sph'
 
-function TopBar() {
+const TopBar = () => {
+  const { theme } = useContext(ThemeContext)
+
   return (
-    <Container>
-      <TextField>
-        <img src={searchIcon} alt="search icon" />
-        <input type="text" placeholder="Search" />
-      </TextField>
+    <Container theme={theme}>
+      <TextField hint="Search" icon="fi fi-rr-search" />
       <Content>
         <IconButton>
-          <img src={cloche} alt="cloch icon" />
+          <i class="fi fi-rr-bell"></i>
         </IconButton>
         <Spacer width="1em" />
-        <Avatar size="2.5em">
-          <img src={profileImage} alt="profile" />
-        </Avatar>
+        <Avatar url={profileImage} />
       </Content>
     </Container>
   )

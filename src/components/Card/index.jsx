@@ -1,9 +1,11 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
+import { ThemeContext } from '../ThemeProvider'
 
 const Container = styled.div`
   grid-column: 1fr;
   overflow: hidden;
-  background-color: white;
+  background-color: ${props => props.theme.cavans};
   border-radius: 1em;
   h3 {
     font-size: 1.1rem;
@@ -45,12 +47,14 @@ const Row = styled.div`
   align-items: center;
   font-size: 0.9rem;
   justify-content: space-between;
-  color: ${(props) => (props.color ? props.color : 'black')};
-`
+  color: ${(props) => props.color};
+` 
 
 export function Card({ image, name, price, time }) {
+  const { theme } = useContext(ThemeContext)
+
   return (
-    <Container>
+    <Container theme={theme}>
       <Padding margin=".8em">
         <ImageContainer>
           <img src={image} alt={name} />
@@ -58,7 +62,7 @@ export function Card({ image, name, price, time }) {
         <Spacer height="1em" />
         <h3>{name}</h3>
         <Spacer height="1em" />
-        <Row color="grey">
+        <Row color={theme.secondary}>
           <div>Current Bid</div>
           <div>Current Bid</div>
         </Row>

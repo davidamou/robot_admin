@@ -1,25 +1,16 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
+import { ThemeProvider } from './components/ThemeProvider'
 import Home from './pages/Home'
-import { createGlobalStyle } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    padding: 0;
-    margin: 0;
-  }
-  body {
-    font-family: Inter, sans-serif;
-    background: whitesmoke;
-  }
-`
+import './styles/icons.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <Home />
+    <ThemeProvider>
+      <Home />
+    </ThemeProvider>
   </React.StrictMode>
 )
 
