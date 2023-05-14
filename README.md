@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Dark theme
+<img src='./public/dark-mode.png'>
+
+# Light theme
+<img src='./public/light-mode.png'>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
