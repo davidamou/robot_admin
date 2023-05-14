@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { Spacer } from '../../styles/globals'
 import Avatar from '../Avatar'
-import logo from '../../assets/icons/logo.svg'
 import { useContext, useState } from 'react'
 import { ThemeContext } from '../ThemeProvider'
 
@@ -35,7 +34,7 @@ const NavLink = styled.div`
   }
 
   i {
-    color: ${(props) => props.isselected? 'rgb(219, 160, 91)' : null};
+    color: ${(props) => (props.isselected ? 'rgb(219, 160, 91)' : null)};
   }
 
   @media (max-width: 768px) {
@@ -69,6 +68,8 @@ const Logo = styled.div`
   margin: 1.2em 0;
   width: 1em;
   height: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
   border-radius: 100%;
   border: 4px solid rgb(219, 160, 91);
   border-top: none;
@@ -77,6 +78,10 @@ const Logo = styled.div`
   justify-content: center;
   align-items: center;
   border-left: none;
+
+  &:hover {
+    cursor: default;
+  }
 
   img {
     width: 100%;
@@ -102,9 +107,7 @@ const NavBar = () => {
   return (
     <NavBarContainer theme={theme}>
       <NavTop>
-        <Logo onClick={() => toggleTheme()}>
-          <img src={logo} alt="logo" />
-        </Logo>
+        <Logo onClick={() => toggleTheme()}>R</Logo>
         <NavLink
           isselected={currentTab == 0 ? true : false}
           onClick={() => setCurrentTab(0)}
