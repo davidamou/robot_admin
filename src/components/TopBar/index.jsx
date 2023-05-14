@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import cloche from '../../assets/icons/cloche.svg'
 import { IconButton, Spacer } from '../../styles/globals'
 import Avatar from '../Avatar'
 import { useContext } from 'react'
