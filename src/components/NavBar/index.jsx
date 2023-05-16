@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Spacer } from '../../styles/globals'
 import Avatar from '../Avatar'
 import { useContext, useState } from 'react'
@@ -24,7 +24,7 @@ const NavBarContainer = styled.div`
   }
 `
 
-const NavLink = styled.div`
+const NavLink = styled.a`
   width: 1.2em;
   height: 1.2em;
   padding: 0.8em;
@@ -57,14 +57,42 @@ const NavTop = styled.div`
   }
 `
 
+const menuAnimation = keyframes`
+from {
+  transform: translateY(1em);
+  opacity: 0;
+}
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+`
+
 const NavBottom = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 1em;
   @media (max-width: 768px) {
-    display: none;
+    margin-bottom: 0;
+    animation: ${menuAnimation} 0.3s ease-in-out forwards;
+    display: ${(props) => (props.showMenu ? 'flex' : 'none')};
+    position: fixed;
+    bottom: 3em;
+    right: 0.5em;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 12em;
+    padding-top: 0.8em;
+    background-color: ${(props) => props.theme.cavans};
   }
 `
+
+const MenuButton = styled(NavLink)`
+  display: none;
+  @media (max-width: 768px) {
+    display: initial;
+  }
+  `
 
 const Logo = styled.div`
   margin: 1.2em 0;
@@ -105,6 +133,7 @@ const av3 = 'https://picsum.photos/200'
 const NavBar = () => {
   const [currentTab, setCurrentTab] = useState(0)
   const { theme, toggleTheme } = useContext(ThemeContext)
+  const [showMenu, setShowMenu] = useState(false)
 
   return (
     <NavBarContainer theme={theme}>
@@ -137,8 +166,11 @@ const NavBar = () => {
         >
           <i className="fi fi-rr-rocket-lunch"></i>
         </NavLink>
+        <MenuButton onClick={() => setShowMenu(!showMenu)}>
+          <i class="fi fi-bs-menu-dots"></i>
+        </MenuButton>
       </NavTop>
-      <NavBottom>
+      <NavBottom theme={theme} showMenu={showMenu}>
         <Avatar url={av1} />
         <Spacer />
         <Avatar url={av2} />
@@ -148,7 +180,6 @@ const NavBar = () => {
         <NavLink>
           <i className="fi fi-rr-exit"></i>
         </NavLink>
-        <Spacer />
       </NavBottom>
     </NavBarContainer>
   )
