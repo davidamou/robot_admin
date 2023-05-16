@@ -4,7 +4,6 @@ import TopBar from '../../components/TopBar'
 import { Card } from '../../components/Card'
 import { Padding, Spacer, Button } from '../../styles/globals'
 import Recommanded from '../../components/Recommanded'
-import { useContext } from 'react'
 import BalanceCard from '../../components/BalanceCard'
 
 const data = [
