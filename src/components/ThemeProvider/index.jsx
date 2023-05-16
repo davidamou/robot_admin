@@ -10,12 +10,19 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    //Verify if user has dark mode enabled by default
     setIsDarkMode(darkModeQuery.matches)
+
+    // add listener for theme change
     const handler = (e) => setIsDarkMode(e.matches)
     darkModeQuery.addEventListener('change', handler)
+
+    // remove listener when component unmounts
     return () => darkModeQuery.removeEventListener('change', handler)
   }, [isDarkMode])
 
+  // set theme based on user preference
   useEffect(() => {
     if (isDarkMode) {
       setTheme(Themes.dark)
