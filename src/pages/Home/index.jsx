@@ -65,7 +65,7 @@ const LargeCard = styled.div`
   flex-direction: column;
   justify-content: center;
   color: white;
-  background-image: url('image-large.jpg');
+  background-image: url('/image-large.jpg');
   background-size: cover;
   background-position: center;
 `
@@ -104,13 +104,11 @@ const BottomSpace = styled.div`
   display: none;
   @media (max-width: 768px) {
     display: initial;
-    height: 4.5em;
+    height: 3em;
   }
 `
 
-function Home() {
-  const isDark = useContext(ThemeContext)
-
+export default function Home() {
   return (
     <HomeContainer>
       <NavBar />
@@ -169,5 +167,3 @@ function Home() {
     </HomeContainer>
   )
 }
-
-export default Home

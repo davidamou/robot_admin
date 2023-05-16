@@ -18,7 +18,9 @@ const NavBarContainer = styled.div`
     background-color: ${(props) => props.theme.background};
     width: 100%;
     height: 3.5em;
-    bottom: 0;
+    bottom: -1em;
+    border-top: 0.05em solid ${(props) => props.theme.divider};
+    border-right: none;
   }
 `
 
@@ -39,7 +41,7 @@ const NavLink = styled.div`
 
   @media (max-width: 768px) {
     border-top: ${(props) =>
-      props.isSelected ? '2px solid rgb(219, 160, 91)' : 'none'};
+      props.isselected ? '2px solid rgb(219, 160, 91)' : 'none'};
     border-right: none;
   }
 `
